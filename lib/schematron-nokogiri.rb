@@ -75,9 +75,9 @@ module SchematronNokogiri
         hit.xpath('svrl:text/text()', NS_PREFIXES).each do |message|
           # make sure code can handle not finding a context 
           # as is the case with abstract patterns
-          context_name = context ? context.name : "no context"
+          context_name = context ? context.name : "none"
           context_line = context ? context.line : "0"
-          context_node_type = context ? node_type(context) :  "no type"
+          context_node_type = context ? node_type(context) :  "none"
           results << {
               :rule_type => rule_type,
               :type => context_node_type,

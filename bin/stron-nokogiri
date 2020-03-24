@@ -21,7 +21,12 @@ begin
   else
 
     errors.each do |error|
-      puts '%s "%s" on line %d: %s' % error.values_at(:type, :name, :line, :message)
+      if error[:type] == 'none'
+        # special case: no context found. just print message
+        puts '%s' % error.values_at(:message)
+      else
+        puts '%s "%s" on line %d: %s' % error.values_at(:type, :name, :line, :message)
+      end
     end
 
     exit 1
